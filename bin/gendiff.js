@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Command } from "../node_modules/commander/esm.mjs";
+import { Command } from 'commander';
 const program = new Command();
 
 program
