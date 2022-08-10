@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
+
 const program = new Command();
 
 program
@@ -9,5 +10,5 @@ program
   .version('0.8.0')
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format <type>', 'output format');
- 
+
 program.parse();
