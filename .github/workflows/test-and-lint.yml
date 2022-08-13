@@ -1,0 +1,16 @@
+name: test-ad-lint
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npx jest --coverage
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npx eslint .
