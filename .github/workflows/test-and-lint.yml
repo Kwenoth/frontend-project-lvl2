@@ -11,6 +11,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Install
+      run: npm ci
+
     - name: Test
       run: npx jest --coverage
 
