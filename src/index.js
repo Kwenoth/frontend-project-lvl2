@@ -3,7 +3,7 @@ import fs from 'fs';
 import compare from './compare.js';
 import makeString from './makeString.js';
 
-// const getExtension = (filepath) => path.extname(filepath).slice(1);
+const getExtension = (filepath) => path.extname(filepath).slice(1);
 const getAbsPath = (filepath) => path.resolve(process.cwd(), filepath);       // переписать
 const getContent = (filepath) => fs.readFileSync(filepath, 'utf8');           // переписать
 const getData = (content) => JSON.parse(content);                             // переписать
