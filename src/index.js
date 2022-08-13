@@ -4,11 +4,11 @@ import compare from './compare.js';
 import makeString from './makeString.js';
 
 // const getExtension = (filepath) => path.extname(filepath).slice(1);
-const getAbsPath = (filepath) => path.resolve(filepath);
-const getContent = (filepath) => fs.readFileSync(filepath, 'utf8');
-const getData = (content) => JSON.parse(content);
+const getAbsPath = (filepath) => path.resolve(process.cwd(), filepath);       // переписать
+const getContent = (filepath) => fs.readFileSync(filepath, 'utf8');           // переписать
+const getData = (content) => JSON.parse(content);                             // переписать
 
-const genDiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2) => {                                   // переписать
   const file1AbsPath = getAbsPath(filepath1);
   const file2AbsPath = getAbsPath(filepath2);
   const file1Content = getContent(file1AbsPath);
