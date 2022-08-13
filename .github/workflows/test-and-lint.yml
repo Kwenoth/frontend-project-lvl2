@@ -12,10 +12,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install
-      run: npm ci
+      run: make install
 
     - name: Test
-      run: npx jest --coverage
+      run: make test
 
     - name: Lint
-      run: npx eslint .
+      run: make lint
