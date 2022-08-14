@@ -1,19 +1,13 @@
 name: test-and-lint
 
-on:
-  push:
-    branches: [ main ]
+on: push
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [17.9.0]
-
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -24,8 +18,8 @@ jobs:
     - name: Install
       run: make install
 
-    - name: Test
-      run: make test
-
-    - name: Lint
+    - name: Eslint
       run: make lint
+
+    - name: Jest
+      run: make test
