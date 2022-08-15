@@ -27,6 +27,7 @@ jobs:
       with:
         coverageCommand: make test-coverage
         debug: true
+      if: ${{ github.event_name == 'push' }}
 
   lint:
     runs-on: ubuntu-latest
