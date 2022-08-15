@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import compare from './compare.js';
-import makeString from './makeString.js';
+import makeString from './make-string.js';
 
 export const getExtension = (filepath) => path.extname(filepath).slice(1);
 const getAbsPath = (filepath) => path.resolve(process.cwd(), filepath);

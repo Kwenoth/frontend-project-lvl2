@@ -15,5 +15,5 @@ test('test extension', () => {
 });
 
 test('testing comparison of two flat JSON files', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toBe(readFile('example1.txt'));
+  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toBe(readFile('example.txt'));
 });
