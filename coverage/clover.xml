@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1660581124504" clover="3.2.0">
-  <project timestamp="1660581124504" name="All files">
+<coverage generated="1660583693483" clover="3.2.0">
+  <project timestamp="1660583693483" name="All files">
     <metrics statements="36" coveredstatements="35" conditionals="13" coveredconditionals="12" methods="9" coveredmethods="8" elements="58" coveredelements="55" complexity="0" loc="36" ncloc="36" packages="1" files="3" classes="3"/>
     <file name="compare.js" path="/home/kwenoth/hexlet-projects/frontend-project-lvl2/src/compare.js">
       <metrics statements="14" coveredstatements="14" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>

@@ -11,6 +11,6 @@ test:
 	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
 
 test-coverage:
-	npm test -- --coverage --coverageProvider=v8
+	NODE_OPTIONS=--experimental-vm-modules npx jest -- --coverage --coverageProvider=v8
 
 .PHONY: test
