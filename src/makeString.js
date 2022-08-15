@@ -9,8 +9,6 @@ const makeString = (data) => {
     } = node;
 
     switch (status) {
-      case 'unchanged':
-        return `    ${key}: ${value}`;
       case 'changed':
         return `  - ${key}: ${value1}\n  + ${key}: ${value2}`;
       case 'deleted':
@@ -18,7 +16,7 @@ const makeString = (data) => {
       case 'added':
         return `  + ${key}: ${value}`;
       default:
-        return 'Error status';
+        return `    ${key}: ${value}`;
     }
   });
 

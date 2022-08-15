@@ -3,12 +3,12 @@ import fs from 'fs';
 import compare from './compare.js';
 import makeString from './makeString.js';
 
-const getExtension = (filepath) => path.extname(filepath).slice(1);
-const getAbsPath = (filepath) => path.resolve(process.cwd(), filepath);       // переписать
-export const readFile = (filepath) => fs.readFileSync(getAbsPath(filepath), 'utf8');
-const makeData = (content) => JSON.parse(content);                             // переписать
+export const getExtension = (filepath) => path.extname(filepath).slice(1);
+const getAbsPath = (filepath) => path.resolve(process.cwd(), filepath);
+const readFile = (filepath) => fs.readFileSync(getAbsPath(filepath), 'utf8');
+const makeData = (content) => JSON.parse(content);
 
-const genDiff = (filepath1, filepath2) => {                                   // переписать
+const genDiff = (filepath1, filepath2) => {
   const file1Content = readFile(filepath1);
   const file2Content = readFile(filepath2);
   const data1 = makeData(file1Content);
