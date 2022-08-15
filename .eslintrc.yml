@@ -2,6 +2,7 @@ env:
   browser: true
   es2021: true
   node: true
+  jest: true
 extends:
   - airbnb-base
 parserOptions:
@@ -9,5 +10,6 @@ parserOptions:
   sourceType: module
 rules: {
   no-console : off,
-  import/extensions : off
+  import/extensions : off,
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
 }
