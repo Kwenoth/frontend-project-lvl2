@@ -5,7 +5,7 @@ import makeString from './makeString.js';
 
 const getExtension = (filepath) => path.extname(filepath).slice(1);
 const getAbsPath = (filepath) => path.resolve(process.cwd(), filepath);       // переписать
-const readFile = (filepath) => fs.readFileSync(getAbsPath(filepath), 'utf8');
+export const readFile = (filepath) => fs.readFileSync(getAbsPath(filepath), 'utf8');
 const makeData = (content) => JSON.parse(content);                             // переписать
 
 const genDiff = (filepath1, filepath2) => {                                   // переписать
