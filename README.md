@@ -4,6 +4,6 @@
 ### Maintainability, linting and test coverage:
 <a href="https://codeclimate.com/github/Kwenoth/frontend-project-lvl2/maintainability"><img src="https://api.codeclimate.com/v1/badges/477173fd1733828fea1d/maintainability" /></a> <a href="https://codeclimate.com/github/Kwenoth/frontend-project-lvl2/test_coverage"><img src="https://api.codeclimate.com/v1/badges/477173fd1733828fea1d/test_coverage" /></a> [![test-and-lint](https://github.com/Kwenoth/frontend-project-lvl2/actions/workflows/test-and-lint.yml/badge.svg)](https://github.com/Kwenoth/frontend-project-lvl2/actions/workflows/test-and-lint.yml)
 
-### Difference calculator. Comparison of flat files (JSON)
+### Difference calculator
 
-<a href="https://asciinema.org/a/514628" target="_blank">Difference calculator. Comparison of flat files (JSON)<img src="https://asciinema.org/a/514628.svg" /></a>
+<a href="https://asciinema.org/a/514628" target="_blank">Comparison of flat files (JSON)<img src="https://asciinema.org/a/514628.svg" /></a>
