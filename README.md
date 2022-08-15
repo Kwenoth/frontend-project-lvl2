@@ -8,3 +8,5 @@
 ### Difference calculator. Comparison of flat files (JSON)
 
 <a href="https://asciinema.org/a/514628" target="_blank">Difference calculator. Comparison of flat files (JSON)<img src="https://asciinema.org/a/514628.svg" /></a>
+
+[![test-and-lint](https://github.com/Kwenoth/frontend-project-lvl2/actions/workflows/test-and-lint.yml/badge.svg)](https://github.com/Kwenoth/frontend-project-lvl2/actions/workflows/test-and-lint.yml)
