@@ -1,8 +1,11 @@
 install:
 	npm ci
 
-gendiff:
+gendiff-json:
 	gendiff __fixtures__/file1.json __fixtures__/file2.json
+
+gendiff-yml:
+	gendiff __fixtures__/file1.yml __fixtures__/file2.yaml
 
 lint:
 	npx eslint .
