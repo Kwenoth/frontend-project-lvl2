@@ -1,8 +1,6 @@
 import _ from 'lodash';
 
-const compare = (data1, data2) => {
-  const obj1 = { ...data1 };
-  const obj2 = { ...data2 };
+const compare = (obj1, obj2) => {
   const keys = _.union(Object.keys(obj1), Object.keys(obj2));
   const sortKeys = _.sortBy(keys);
   const result = sortKeys.map((key) => {
