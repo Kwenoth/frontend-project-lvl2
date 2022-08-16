@@ -6,4 +6,6 @@
 
 ### Difference calculator
 
-<a href="https://asciinema.org/a/514628" target="_blank">Comparison of flat files (JSON)<img src="https://asciinema.org/a/514628.svg" /></a>
+<a href="https://asciinema.org/a/514628" target="_blank">Comparison of two flat JSON files<img src="https://asciinema.org/a/514628.svg" /></a>
+
+<a href="https://asciinema.org/a/515235" target="_blank">Comparison of two flat YAML files<img src="https://asciinema.org/a/515235.svg" /></a>
