@@ -10,12 +10,12 @@ const stylish = (tree) => {
         status,
       } = node;
 
-      const getValue = (val) => (Array.isArray(val) ? iter(val, reps + 4) : val);         // вынести
+      const getValue = (val) => (Array.isArray(val) ? iter(val, reps + 4) : val);
 
       switch (status) {
-        case 'changed':
+        case 'updated':
           return `${indent.repeat(reps)}- ${key}: ${getValue(value1)}\n${indent.repeat(reps)}+ ${key}: ${getValue(value2)}`;
-        case 'deleted':
+        case 'removed':
           return `${indent.repeat(reps)}- ${key}: ${getValue(value)}`;
         case 'added':
           return `${indent.repeat(reps)}+ ${key}: ${getValue(value)}`;

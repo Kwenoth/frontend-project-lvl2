@@ -13,7 +13,7 @@ const makeParse = (filepath, fileContent) => {
     case '.yaml':
       return yaml.load(fileContent);
     default:
-      return 'Extension error';
+      return 'Extension error. Use only .json or .yaml files to compare';
   }
 };
 
