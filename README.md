@@ -13,3 +13,5 @@
 <a href="https://asciinema.org/a/516195" target="_blank">Comparing JSON (YAML) files with recursive structure<img src="https://asciinema.org/a/516195.svg" /></a>
 
 <a href="https://asciinema.org/a/516873" target="_blank">Comparison of two files with output of the result in plain format<img src="https://asciinema.org/a/516873.svg" /></a>
+
+<a href="https://asciinema.org/a/516905" target="_blank">Comparison of two files with output of the result in json format<img src="https://asciinema.org/a/516905.svg" /></a>
