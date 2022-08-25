@@ -12,15 +12,8 @@ const compare = (obj1, obj2) => {
         const children = compare(value1, value2);
         return { key, value: children, status: 'unchanged' };
       }
-      return value1 === value2 ? {
-        key,
-        value: value1,
-        status: 'unchanged',
-      } : {
-        key,
-        value1: decompose(value1),
-        value2: decompose(value2),
-        status: 'updated',
+      return value1 === value2 ? { key, value: value1, status: 'unchanged' } : {
+        key, value1: decompose(value1), value2: decompose(value2), status: 'updated',
       };
     }
     if (!Object.hasOwn(obj1, key)) {
@@ -28,6 +21,7 @@ const compare = (obj1, obj2) => {
     }
     return isObject(value1) ? { key, value: decompose(value1), status: 'removed' } : { key, value: value1, status: 'removed' };
   });
+
   return result;
 };
 

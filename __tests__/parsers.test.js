@@ -1,4 +1,4 @@
-import makeParse, { getExtension } from '../src/parsers';
+import makeData, { getExtension } from '../src/parsers';
 
 test('test extension', () => {
   expect(getExtension('file.js')).toBe('.js');
@@ -8,5 +8,5 @@ test('test extension', () => {
 });
 
 test('test incorrect extension', () => {
-  expect(makeParse('__fixtures__/json-result.txt', 'fixtures')).toBe('Extension error. Use only .json or .yaml files to compare');
+  expect(makeData('__fixtures__/json-result.txt', 'fixtures')).toBe('Extension error. Use only .json or .yaml files to compare');
 });

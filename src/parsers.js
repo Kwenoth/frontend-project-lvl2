@@ -1,12 +1,17 @@
 import yaml from 'js-yaml';
 import path from 'path';
+import fs from 'fs';
+
+const getAbsPath = (filepath) => path.resolve(process.cwd(), filepath);
+const readFile = (filepath) => fs.readFileSync(getAbsPath(filepath), 'utf8');
 
 export const getExtension = (filepath) => path.extname(filepath);
 
-const makeParse = (filepath, fileContent) => {
-  const ext = getExtension(filepath);
+const makeData = (filepath) => {
+  const extension = getExtension(filepath);
+  const fileContent = readFile(filepath);
 
-  switch (ext) {
+  switch (extension) {
     case '.json':
       return JSON.parse(fileContent);
     case '.yml':
@@ -17,4 +22,4 @@ const makeParse = (filepath, fileContent) => {
   }
 };
 
-export default makeParse;
+export default makeData;

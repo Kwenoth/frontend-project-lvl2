@@ -1,3 +1,10 @@
+const property = (value) => {
+  if (Array.isArray(value)) {
+    return '[complex value]';
+  }
+  return typeof value === 'string' ? `'${value}'` : value;
+};
+
 const plain = (tree) => {
   const startPath = '';
   const iter = (array, path) => {
@@ -10,27 +17,17 @@ const plain = (tree) => {
         status,
       } = node;
 
-      const prop = (val) => {
-        if (Array.isArray(val)) {
-          return '[complex value]';
-        }
-        return typeof val === 'string' ? `'${val}'` : val;
-      };
-
       const adress = `${path}.${key}`;
 
       switch (status) {
         case 'updated':
-          return `Property '${adress.slice(1)}' was updated. From ${prop(value1)} to ${prop(value2)}`;
+          return `Property '${adress.slice(1)}' was updated. From ${property(value1)} to ${property(value2)}`;
         case 'removed':
           return `Property '${adress.slice(1)}' was removed`;
         case 'added':
-          return `Property '${adress.slice(1)}' was added with value: ${prop(value)}`;
+          return `Property '${adress.slice(1)}' was added with value: ${property(value)}`;
         default:
-          if (Array.isArray(value)) {
-            return `${iter(value, adress)}`;
-          }
-          return [];
+          return Array.isArray(value) ? `${iter(value, adress)}` : [];
       }
     });
 

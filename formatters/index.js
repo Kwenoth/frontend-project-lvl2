@@ -6,17 +6,16 @@ import { isObject } from '../src/tools-for-objects.js';
 const formatData = (tree, format) => {
   const exitFormat = isObject(format) ? format.format.toLowerCase() : format.toLowerCase();
 
-  if (exitFormat === 'stylish') {
-    return stylish(tree);
+  switch (exitFormat) {
+    case 'stylish':
+      return stylish(tree);
+    case 'plain':
+      return plain(tree);
+    case 'json':
+      return json(tree);
+    default:
+      return `Error "${exitFormat}". Incorrect exit format. Use "json", "plain" or "stylish" only`;
   }
-  if (exitFormat === 'plain') {
-    return plain(tree);
-  }
-  if (exitFormat === 'json') {
-    return json(tree);
-  }
-
-  return `Error "${exitFormat}". Incorrect exit format. Use "json", "plain" or "stylish" only`;
 };
 
 export default formatData;

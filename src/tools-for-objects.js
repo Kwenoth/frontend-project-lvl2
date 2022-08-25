@@ -9,5 +9,6 @@ export const decompose = (obj) => {
     const value = obj[key];
     return isObject(value) ? { key, value: decompose(value) } : { key, value };
   });
+
   return result;
 };
