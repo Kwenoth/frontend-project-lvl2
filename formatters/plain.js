@@ -6,8 +6,7 @@ const property = (value) => {
 };
 
 const plain = (tree) => {
-  const startPath = '';
-  const iter = (array, path) => {
+  const iter = (array, path = '') => {
     const result = array.flatMap((node) => {
       const {
         key,
@@ -34,7 +33,7 @@ const plain = (tree) => {
     return result.join('\n');
   };
 
-  return iter(tree, startPath);
+  return iter(tree);
 };
 
 export default plain;

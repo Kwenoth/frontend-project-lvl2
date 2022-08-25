@@ -1,5 +1,5 @@
 const stylish = (tree) => {
-  const iter = (array, reps) => {
+  const iter = (array, reps = 2) => {
     const indent = ' ';
     const result = array.map((node) => {
       const {
@@ -27,7 +27,7 @@ const stylish = (tree) => {
     return `{\n${result.join('\n')}\n${indent.repeat(reps - 2)}}`;
   };
 
-  return iter(tree, 2);
+  return iter(tree);
 };
 
 export default stylish;
