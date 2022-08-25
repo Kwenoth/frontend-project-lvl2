@@ -3,8 +3,8 @@ import { isObject, decompose } from './tools-for-objects.js';
 
 const compare = (obj1, obj2) => {
   const keys = _.union(Object.keys(obj1), Object.keys(obj2));
-  const sortKeys = _.sortBy(keys);
-  const result = sortKeys.map((key) => {
+  const sortedKeys = _.sortBy(keys);
+  const result = sortedKeys.map((key) => {
     const value1 = obj1[key];
     const value2 = obj2[key];
     if (Object.hasOwn(obj1, key) && Object.hasOwn(obj2, key)) {
