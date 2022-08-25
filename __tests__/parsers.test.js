@@ -1,4 +1,4 @@
-import makeParse, { getExtension } from "../src/parsers";
+import makeParse, { getExtension } from '../src/parsers';
 
 test('test extension', () => {
   expect(getExtension('file.js')).toBe('.js');

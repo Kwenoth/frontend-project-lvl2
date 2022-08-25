@@ -3,8 +3,8 @@ import plain from './plain.js';
 import json from './json.js';
 import { isObject } from '../src/tools-for-objects.js';
 
-const formatData = (tree, formatName) => {
-  const exitFormat = isObject(formatName) ? formatName.format.toLowerCase() : formatName.toLowerCase();
+const formatData = (tree, format) => {
+  const exitFormat = isObject(format) ? format.format.toLowerCase() : format.toLowerCase();
 
   if (exitFormat === 'stylish') {
     return stylish(tree);
