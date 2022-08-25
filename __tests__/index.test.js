@@ -29,5 +29,5 @@ test('testing start with CLI', () => {
 });
 
 test('testing wrong exit format', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.yaml', 'someFormat')).toBe('Error "someFormat". Incorrect exit format. Use "json", "plain" or "stylish" only');
+  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.yaml', 'someFormat')).toBe('Error "someformat". Incorrect exit format. Use "json", "plain" or "stylish" only');
 });
