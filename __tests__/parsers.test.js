@@ -1,12 +1,12 @@
-import makeData, { getExtension } from '../src/parsers';
+import makeData, { getExtension } from '../src/parsers.js';
 
-test('test extension', () => {
+test('extension', () => {
   expect(getExtension('file.js')).toBe('.js');
   expect(getExtension('file.json')).toBe('.json');
   expect(getExtension('file.yml')).toBe('.yml');
   expect(getExtension('directory')).toBe('');
 });
 
-test('test incorrect extension', () => {
+test('incorrect extension', () => {
   expect(makeData('__fixtures__/json-result.txt', 'fixtures')).toBe('Extension error. Use only .json or .yaml files to compare');
 });
