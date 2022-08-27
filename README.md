@@ -50,7 +50,7 @@ As an example with output in "plain" format:
 gendiff(__fixtures__/file1.json, __fixtures__/file2.json, 'plain').
 ```
 
-Below you can find short videos with a demonstration of how it works.
+### Below you can find short videos with a demonstration of how it works.
 
 <a href="https://asciinema.org/a/514628" target="_blank">Comparison of two flat JSON files<img src="https://asciinema.org/a/514628.svg" /></a>
 
