@@ -33,6 +33,7 @@ If you want to use as a library, clone the repository locally and export the "ge
 ### As a CLI:
 
 Run "gendiff [options] filepath1 filepath2" in the console, where filepath1 and filepath2 are the paths to the files being compared. Optionally, you can specify the output format of the comparison result: "stylish", "plain" or "json". The format is specified with the -f or --format flags.
+
 As an example with output in "plain" format:
 
 ```sh
@@ -42,6 +43,7 @@ gendiff --format plain __fixtures__/file1.json __fixtures__/file2.json
 ### As a plugin library:
 
 Call the "genDiff" function, passing three arguments: filepath1, filepath2, and the output format.
+
 As an example with output in "plain" format:
 
 ```sh
