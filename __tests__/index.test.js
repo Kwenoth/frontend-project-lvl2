@@ -8,26 +8,16 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-test('testing comparison of two JSON files', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toBe(readFile('stylish-result.txt'));
-});
-
-test('testing comparison of two YAML files', () => {
-  expect(genDiff('__fixtures__/file1.yml', '__fixtures__/file2.yaml')).toBe(readFile('stylish-result.txt'));
-});
-
-test('testing comparison of two JSON - YAML files using plain formatter', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.yaml', 'plain')).toBe(readFile('plain-result.txt'));
-});
-
-test('testing comparison of two JSON - YAML files using json formatter', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.yaml', 'json')).toBe(readFile('json-result.txt'));
-});
-
-test('testing start with CLI', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.yaml', { format: 'plain' })).toBe(readFile('plain-result.txt'));
-});
-
-test('testing wrong exit format', () => {
-  expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.yaml', 'someFormat')).toBe('Error "someformat". Incorrect exit format. Use "json", "plain" or "stylish" only');
+test.each`
+  a                            | b                            | c                      | expected
+  ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.json'} | ${'stylish'}           | ${readFile('stylish-result.txt')}
+  ${'__fixtures__/file1.yml'}  | ${'__fixtures__/file2.yaml'} | ${'stylish'}           | ${readFile('stylish-result.txt')}
+  ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${'plain'}             | ${readFile('plain-result.txt')}
+  ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${{ format: 'plain' }} | ${readFile('plain-result.txt')}
+  ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${'json'}              | ${readFile('json-result.txt')}
+  ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${'someFormat'}        | ${'Error "someformat". Incorrect exit format. Use "json", "plain" or "stylish" only'}
+`('testing genDiff($a, $b, $c)', ({
+  a, b, c, expected,
+}) => {
+  expect(genDiff(a, b, c)).toBe(expected);
 });
