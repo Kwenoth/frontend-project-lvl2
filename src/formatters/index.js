@@ -1,7 +1,7 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
-import { isObject } from '../src/tools-for-objects.js';
+import { isObject } from '../tools-for-objects.js';
 
 const formatData = (tree, format) => {
   const exitFormat = isObject(format) ? format.format.toLowerCase() : format.toLowerCase();
