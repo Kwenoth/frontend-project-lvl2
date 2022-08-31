@@ -1,1 +1,120 @@
-[{"key":"common","value":[{"key":"follow","value":false,"status":"added"},{"key":"setting1","value":"Value 1","status":"unchanged"},{"key":"setting2","value":200,"status":"removed"},{"key":"setting3","value1":true,"value2":null,"status":"updated"},{"key":"setting4","value":"blah blah","status":"added"},{"key":"setting5","value":[{"key":"key5","value":"value5"}],"status":"added"},{"key":"setting6","value":[{"key":"doge","value":[{"key":"wow","value1":"","value2":"so much","status":"updated"}],"status":"unchanged"},{"key":"key","value":"value","status":"unchanged"},{"key":"ops","value":"vops","status":"added"}],"status":"unchanged"}],"status":"unchanged"},{"key":"group1","value":[{"key":"baz","value1":"bas","value2":"bars","status":"updated"},{"key":"foo","value":"bar","status":"unchanged"},{"key":"nest","value1":[{"key":"key","value":"value"}],"value2":"str","status":"updated"}],"status":"unchanged"},{"key":"group2","value":[{"key":"abc","value":12345},{"key":"deep","value":[{"key":"id","value":45}]}],"status":"removed"},{"key":"group3","value":[{"key":"deep","value":[{"key":"id","value":[{"key":"number","value":45}]}]},{"key":"fee","value":100500}],"status":"added"}]
+{
+ "key": "tree",
+ "value": [
+  {
+   "key": "common",
+   "value": [
+    {
+     "key": "follow",
+     "value": false,
+     "status": "added"
+    },
+    {
+     "key": "setting1",
+     "value": "Value 1",
+     "status": "unchanged"
+    },
+    {
+     "key": "setting2",
+     "value": 200,
+     "status": "removed"
+    },
+    {
+     "key": "setting3",
+     "value1": true,
+     "value2": null,
+     "status": "updated"
+    },
+    {
+     "key": "setting4",
+     "value": "blah blah",
+     "status": "added"
+    },
+    {
+     "key": "setting5",
+     "value": {
+      "key5": "value5"
+     },
+     "status": "added"
+    },
+    {
+     "key": "setting6",
+     "value": [
+      {
+       "key": "doge",
+       "value": [
+        {
+         "key": "wow",
+         "value1": "",
+         "value2": "so much",
+         "status": "updated"
+        }
+       ],
+       "status": "nested"
+      },
+      {
+       "key": "key",
+       "value": "value",
+       "status": "unchanged"
+      },
+      {
+       "key": "ops",
+       "value": "vops",
+       "status": "added"
+      }
+     ],
+     "status": "nested"
+    }
+   ],
+   "status": "nested"
+  },
+  {
+   "key": "group1",
+   "value": [
+    {
+     "key": "baz",
+     "value1": "bas",
+     "value2": "bars",
+     "status": "updated"
+    },
+    {
+     "key": "foo",
+     "value": "bar",
+     "status": "unchanged"
+    },
+    {
+     "key": "nest",
+     "value1": {
+      "key": "value"
+     },
+     "value2": "str",
+     "status": "updated"
+    }
+   ],
+   "status": "nested"
+  },
+  {
+   "key": "group2",
+   "value": {
+    "abc": 12345,
+    "deep": {
+     "id": 45
+    }
+   },
+   "status": "removed"
+  },
+  {
+   "key": "group3",
+   "value": {
+    "deep": {
+     "id": {
+      "number": 45
+     }
+    },
+    "fee": 100500
+   },
+   "status": "added"
+  }
+ ],
+ "status": "root"
+}
