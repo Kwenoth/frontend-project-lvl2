@@ -1,12 +1,9 @@
-import _ from 'lodash';
 import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
 const formatData = (tree, format) => {
-  const exitFormat = _.isPlainObject(format) ? format.format.toLowerCase() : format.toLowerCase();
-
-  switch (exitFormat) {
+  switch (format) {
     case 'stylish':
       return stylish(tree);
     case 'plain':
@@ -14,7 +11,7 @@ const formatData = (tree, format) => {
     case 'json':
       return json(tree);
     default:
-      return `Error "${exitFormat}". Incorrect exit format. Use "json", "plain" or "stylish" only`;
+      return `Error "${format}". Incorrect exit format. Use "json", "plain" or "stylish" only`;
   }
 };
 

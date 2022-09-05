@@ -13,9 +13,8 @@ test.each`
   ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.json'} | ${'stylish'}           | ${readFile('stylish-result.txt')}
   ${'__fixtures__/file1.yml'}  | ${'__fixtures__/file2.yaml'} | ${'stylish'}           | ${readFile('stylish-result.txt')}
   ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${'plain'}             | ${readFile('plain-result.txt')}
-  ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${{ format: 'plain' }} | ${readFile('plain-result.txt')}
   ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${'json'}              | ${readFile('json-result.txt')}
-  ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${'someFormat'}        | ${'Error "someformat". Incorrect exit format. Use "json", "plain" or "stylish" only'}
+  ${'__fixtures__/file1.json'} | ${'__fixtures__/file2.yaml'} | ${'someFormat'}        | ${'Error "someFormat". Incorrect exit format. Use "json", "plain" or "stylish" only'}
 `('testing genDiff($a, $b, $c)', ({
   a, b, c, expected,
 }) => {
