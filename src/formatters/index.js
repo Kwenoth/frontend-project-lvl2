@@ -1,10 +1,10 @@
+import _ from 'lodash';
 import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
-import { isObject } from '../tools-for-objects.js';
 
 const formatData = (tree, format) => {
-  const exitFormat = isObject(format) ? format.format.toLowerCase() : format.toLowerCase();
+  const exitFormat = _.isPlainObject(format) ? format.format.toLowerCase() : format.toLowerCase();
 
   switch (exitFormat) {
     case 'stylish':

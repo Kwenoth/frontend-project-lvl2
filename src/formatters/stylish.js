@@ -1,4 +1,5 @@
-import { isObject, decompose } from '../tools-for-objects.js';
+import _ from 'lodash';
+import decompose from '../decompose.js';
 
 const stylish = (tree, reps = 2) => {
   const indent = ' ';
@@ -6,7 +7,7 @@ const stylish = (tree, reps = 2) => {
     if (Array.isArray(value)) {
       return stylish({ value }, reps + 4);
     }
-    if (isObject(value)) {
+    if (_.isPlainObject(value)) {
       return stylish({ value: decompose(value) }, reps + 4);
     }
     return value;

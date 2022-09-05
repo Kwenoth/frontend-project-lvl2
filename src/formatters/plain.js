@@ -1,7 +1,7 @@
-import { isObject } from '../tools-for-objects.js';
+import _ from 'lodash';
 
 const property = (value) => {
-  if (Array.isArray(value) || isObject(value)) {
+  if (Array.isArray(value) || _.isPlainObject(value)) {
     return '[complex value]';
   }
   return typeof value === 'string' ? `'${value}'` : value;
