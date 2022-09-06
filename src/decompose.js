@@ -4,7 +4,7 @@ const decompose = (obj) => {
   const keys = Object.keys(obj);
   const result = keys.map((key) => {
     const value = obj[key];
-    return _.isPlainObject(value) ? { key, value: decompose(value) } : { key, value };
+    return _.isPlainObject(value) ? { key, value: decompose(value), status: 'nested' } : { key, value, status: 'unchanged' };
   });
 
   return result;
