@@ -31,8 +31,10 @@ const plain = (tree, path = '') => {
       return `Property '${adress.slice(2)}' was removed`;
     case 'added':
       return `Property '${adress.slice(2)}' was added with value: ${property(value)}`;
-    default:
+    case 'unchanged':
       return [];
+    default:
+      throw new Error(`Неверный статус объекта 'diff': 'status: ${status}'`);
   }
 };
 
