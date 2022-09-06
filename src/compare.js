@@ -3,7 +3,7 @@ import _ from 'lodash';
 const makeDiff = (obj1, obj2) => {
   const keys = _.union(Object.keys(obj1), Object.keys(obj2));
   const sortedKeys = _.sortBy(keys);
-  const result = sortedKeys.flatMap((key) => {
+  const result = sortedKeys.map((key) => {
     const value1 = obj1[key];
     const value2 = obj2[key];
 
