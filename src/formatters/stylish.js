@@ -17,7 +17,7 @@ const getValue = (value, func, depth, char) => {
   return value;
 };
 
-const stylish = (tree, depth = 0) => {
+const stylish = (tree, depth) => {
   const indent = ' ';
   const reps = depth + 2;
   const {
