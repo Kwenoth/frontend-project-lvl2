@@ -3,33 +3,30 @@ import _ from 'lodash';
 const makeDiff = (obj1, obj2) => {
   const sortedKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2)));
   const result = sortedKeys.map((key) => {
-    const value1 = obj1[key];
-    const value2 = obj2[key];
-
     if (!_.has(obj1, key)) {
-      return { key, value: value2, status: 'added' };
+      return { key, value: obj2[key], status: 'added' };
     }
     if (!_.has(obj2, key)) {
-      return { key, value: value1, status: 'removed' };
+      return { key, value: obj1[key], status: 'removed' };
     }
-    if (_.isPlainObject(value1) && _.isPlainObject(value2)) {
-      const children = makeDiff(value1, value2);
+    if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
+      const children = makeDiff(obj1[key], obj2[key]);
       return { key, value: children, status: 'nested' };
     }
-    if (!_.isEqual(value1, value2)) {
+    if (!_.isEqual(obj1[key], obj2[key])) {
       return {
-        key, value1, value2, status: 'updated',
+        key, value1: obj1[key], value2: obj2[key], status: 'updated',
       };
     }
 
-    return { key, value: value1, status: 'unchanged' };
+    return { key, value: obj1[key], status: 'unchanged' };
   });
 
   return result;
 };
 
-const compare = (obj1, obj2) => {
-  const result = makeDiff(obj1, obj2);
+const compare = (data1, data2) => {
+  const result = makeDiff(data1, data2);
   return { value: result, status: 'root' };
 };
 
