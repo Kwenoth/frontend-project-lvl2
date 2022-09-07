@@ -1,10 +1,10 @@
 import _ from 'lodash';
 
-const property = (value) => {
+const getProperty = (value) => {
   if (_.isPlainObject(value)) {
     return '[complex value]';
   }
-  return typeof value === 'string' ? `'${value}'` : value;
+  return _.isString(value) ? `'${value}'` : value;
 };
 
 const plain = (tree, path = '') => {
@@ -15,21 +15,19 @@ const plain = (tree, path = '') => {
     value2,
     status,
   } = tree;
-  const name = key === undefined ? '' : key;
+  const name = _.isUndefined(key) ? '' : key;
   const adress = `${path}.${name}`;
 
   switch (status) {
     case 'root':
-    case 'nested': {
-      const result = value.flatMap((node) => plain(node, adress));
-      return result.join('\n');
-    }
+    case 'nested':
+      return value.flatMap((node) => plain(node, adress)).join('\n');
     case 'updated':
-      return `Property '${adress.slice(2)}' was updated. From ${property(value1)} to ${property(value2)}`;
+      return `Property '${adress.slice(2)}' was updated. From ${getProperty(value1)} to ${getProperty(value2)}`;
     case 'removed':
       return `Property '${adress.slice(2)}' was removed`;
     case 'added':
-      return `Property '${adress.slice(2)}' was added with value: ${property(value)}`;
+      return `Property '${adress.slice(2)}' was added with value: ${getProperty(value)}`;
     case 'unchanged':
       return [];
     default:
