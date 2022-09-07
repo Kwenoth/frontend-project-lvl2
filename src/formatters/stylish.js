@@ -29,14 +29,10 @@ const stylish = (tree, depth = 0) => {
   } = tree;
 
   switch (status) {
-    case 'root': {
-      const result = value.map((node) => stylish(node, 0));
-      return `{\n${result.join('\n')}\n}`;
-    }
-    case 'nested': {
-      const result = value.map((node) => stylish(node, reps + 2));
-      return `${indent.repeat(reps)}  ${key}: {\n${result.join('\n')}\n${indent.repeat(reps + 2)}}`;
-    }
+    case 'root':
+      return `{\n${value.map((node) => stylish(node, 0)).join('\n')}\n}`;
+    case 'nested':
+      return `${indent.repeat(reps)}  ${key}: {\n${value.map((node) => stylish(node, reps + 2)).join('\n')}\n${indent.repeat(reps + 2)}}`;
     case 'updated':
       return `${indent.repeat(reps)}- ${key}: ${getValue(value1, stylish, reps, indent)}\n${indent.repeat(reps)}+ ${key}: ${getValue(value2, stylish, reps, indent)}`;
     case 'removed':
