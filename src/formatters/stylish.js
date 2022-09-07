@@ -1,11 +1,19 @@
 import _ from 'lodash';
-import decompose from '../decompose.js';
+
+const decompose = (obj) => {
+  const keys = _.keys(obj);
+  const result = keys.map((key) => {
+    const value = obj[key];
+    return _.isPlainObject(value) ? { key, value: decompose(value), status: 'nested' } : { key, value, status: 'unchanged' };
+  });
+
+  return result;
+};
 
 const getValue = (value, func, depth, char) => {
   if (_.isPlainObject(value)) {
-    const result = decompose(value);
-    const res = result.map((node) => func(node, depth + 2)).join('\n');
-    return `{\n${res}\n${char.repeat(depth + 2)}}`;
+    const result = decompose(value).map((node) => func(node, depth + 2)).join('\n');
+    return `{\n${result}\n${char.repeat(depth + 2)}}`;
   }
   return value;
 };
