@@ -2,12 +2,11 @@ import _ from 'lodash';
 
 const decompose = (obj) => {
   const keys = _.keys(obj);
-  const result = keys.map((key) => {
+
+  return keys.map((key) => {
     const value = obj[key];
     return _.isPlainObject(value) ? { key, value: decompose(value), status: 'nested' } : { key, value, status: 'unchanged' };
   });
-
-  return result;
 };
 
 const getValue = (value, func, depth, char) => {

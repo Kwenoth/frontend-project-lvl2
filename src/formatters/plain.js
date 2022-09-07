@@ -15,7 +15,6 @@ const plain = (tree, path = '') => {
     value2,
     status,
   } = tree;
-
   const name = key === undefined ? '' : key;
   const adress = `${path}.${name}`;
 

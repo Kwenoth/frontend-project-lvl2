@@ -2,7 +2,8 @@ import _ from 'lodash';
 
 const makeDiff = (obj1, obj2) => {
   const sortedKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2)));
-  const result = sortedKeys.map((key) => {
+
+  return sortedKeys.map((key) => {
     if (!_.has(obj1, key)) {
       return { key, value: obj2[key], status: 'added' };
     }
@@ -21,8 +22,6 @@ const makeDiff = (obj1, obj2) => {
 
     return { key, value: obj1[key], status: 'unchanged' };
   });
-
-  return result;
 };
 
 const compare = (data1, data2) => {
