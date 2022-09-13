@@ -16,19 +16,19 @@ const plain = (tree, path = []) => {
     status,
   } = tree;
 
-  const adress = [...path, key];
+  const address = [...path, key];
 
   switch (status) {
     case 'root':
       return value.flatMap((node) => plain(node, [])).join('\n');
     case 'nested':
-      return value.flatMap((node) => plain(node, adress)).join('\n');
+      return value.flatMap((node) => plain(node, address)).join('\n');
     case 'updated':
-      return `Property '${adress.join('.')}' was updated. From ${getProperty(value1)} to ${getProperty(value2)}`;
+      return `Property '${address.join('.')}' was updated. From ${getProperty(value1)} to ${getProperty(value2)}`;
     case 'removed':
-      return `Property '${adress.join('.')}' was removed`;
+      return `Property '${address.join('.')}' was removed`;
     case 'added':
-      return `Property '${adress.join('.')}' was added with value: ${getProperty(value)}`;
+      return `Property '${address.join('.')}' was added with value: ${getProperty(value)}`;
     case 'unchanged':
       return [];
     default:
