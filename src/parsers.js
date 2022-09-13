@@ -15,6 +15,7 @@ const makeData = (filepath) => {
     case '.json':
       return JSON.parse(fileContent);
     case '.yml':
+      return yaml.load(fileContent);
     case '.yaml':
       return yaml.load(fileContent);
     default:
