@@ -20,17 +20,19 @@ const plain = (tree, path = []) => {
 
   switch (status) {
     case 'root':
-      return value.flatMap((node) => plain(node, [])).join('\n');
+      return value
+        .filter((node) => node.status !== 'unchanged')
+        .map((node) => plain(node)).join('\n');
     case 'nested':
-      return value.flatMap((node) => plain(node, address)).join('\n');
+      return value
+        .filter((node) => node.status !== 'unchanged')
+        .map((node) => plain(node, address)).join('\n');
     case 'updated':
       return `Property '${address.join('.')}' was updated. From ${stringify(value1)} to ${stringify(value2)}`;
     case 'removed':
       return `Property '${address.join('.')}' was removed`;
     case 'added':
       return `Property '${address.join('.')}' was added with value: ${stringify(value)}`;
-    case 'unchanged':
-      return [];
     default:
       throw new Error(`Неверный статус объекта 'diff': 'status: ${status}'`);
   }
