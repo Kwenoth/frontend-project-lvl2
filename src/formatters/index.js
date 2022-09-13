@@ -8,7 +8,7 @@ const formatData = (tree, format) => {
     case 'plain':
       return plain(tree);
     case 'json':
-      return JSON.stringify(tree, null, ' ');
+      return JSON.stringify(tree);
     default:
       return `Error "${format}". Incorrect exit format. Use "json", "plain" or "stylish" only`;
   }
