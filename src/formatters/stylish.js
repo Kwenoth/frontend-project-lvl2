@@ -1,24 +1,23 @@
 import _ from 'lodash';
 
 const indentAmount = (level) => {
-  const defaultIndentAmount = 2;
-  const depthIndent = defaultIndentAmount * level;
+  const indent = ' ';
+  const defaultIndentAmount = 4;
+  const depthIndent = defaultIndentAmount * level - 2;
 
-  return depthIndent;
+  return indent.repeat(depthIndent);
 };
 
-const stringify = (property, formatter, level, char) => {
+const stringify = (property, formatter, level) => {
   if (_.isPlainObject(property)) {
-    const result = Object.entries(property).map(([key, value]) => formatter({ key, value, status: 'unchanged' }, level + 2)).join('\n');
-    return `{\n${result}\n${char.repeat(indentAmount(level + 1))}}`;
+    const result = Object.entries(property).map(([key, value]) => formatter({ key, value, status: 'unchanged' }, level + 1)).join('\n');
+    return `{\n${result}\n${indentAmount(level)}  }`;
   }
 
   return property;
 };
 
 const stylish = (tree, level) => {
-  const indent = ' ';
-  const reps = indentAmount(level);
   const {
     key,
     value,
@@ -31,15 +30,15 @@ const stylish = (tree, level) => {
     case 'root':
       return `{\n${value.map((node) => stylish(node, 1)).join('\n')}\n}`;
     case 'nested':
-      return `${indent.repeat(reps)}  ${key}: {\n${value.map((node) => stylish(node, level + 2)).join('\n')}\n${indent.repeat(reps + 2)}}`;
+      return `${indentAmount(level)}  ${key}: {\n${value.map((node) => stylish(node, level + 1)).join('\n')}\n${indentAmount(level)}  }`;
     case 'updated':
-      return `${indent.repeat(reps)}- ${key}: ${stringify(value1, stylish, level, indent)}\n${indent.repeat(reps)}+ ${key}: ${stringify(value2, stylish, level, indent)}`;
+      return `${indentAmount(level)}- ${key}: ${stringify(value1, stylish, level)}\n${indentAmount(level)}+ ${key}: ${stringify(value2, stylish, level)}`;
     case 'removed':
-      return `${indent.repeat(reps)}- ${key}: ${stringify(value, stylish, level, indent)}`;
+      return `${indentAmount(level)}- ${key}: ${stringify(value, stylish, level)}`;
     case 'added':
-      return `${indent.repeat(reps)}+ ${key}: ${stringify(value, stylish, level, indent)}`;
+      return `${indentAmount(level)}+ ${key}: ${stringify(value, stylish, level)}`;
     case 'unchanged':
-      return `${indent.repeat(reps)}  ${key}: ${stringify(value, stylish, level, indent)}`;
+      return `${indentAmount(level)}  ${key}: ${stringify(value, stylish, level)}`;
     default:
       throw new Error(`Неверный статус объекта 'diff': 'status: ${status}'`);
   }
