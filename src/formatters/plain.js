@@ -11,8 +11,7 @@ const plain = (tree, path = []) => {
   const {
     key,
     value,
-    value1,
-    value2,
+    newValue,
     status,
   } = tree;
 
@@ -28,7 +27,7 @@ const plain = (tree, path = []) => {
         .filter((node) => node.status !== 'unchanged')
         .map((node) => plain(node, address)).join('\n');
     case 'updated':
-      return `Property '${address.join('.')}' was updated. From ${stringify(value1)} to ${stringify(value2)}`;
+      return `Property '${address.join('.')}' was updated. From ${stringify(value)} to ${stringify(newValue)}`;
     case 'removed':
       return `Property '${address.join('.')}' was removed`;
     case 'added':

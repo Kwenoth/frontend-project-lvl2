@@ -21,8 +21,7 @@ const stylish = (tree, level) => {
   const {
     key,
     value,
-    value1,
-    value2,
+    newValue,
     status,
   } = tree;
 
@@ -32,7 +31,7 @@ const stylish = (tree, level) => {
     case 'nested':
       return `${indentAmount(level)}  ${key}: {\n${value.map((node) => stylish(node, level + 1)).join('\n')}\n${indentAmount(level)}  }`;
     case 'updated':
-      return `${indentAmount(level)}- ${key}: ${stringify(value1, stylish, level)}\n${indentAmount(level)}+ ${key}: ${stringify(value2, stylish, level)}`;
+      return `${indentAmount(level)}- ${key}: ${stringify(value, stylish, level)}\n${indentAmount(level)}+ ${key}: ${stringify(newValue, stylish, level)}`;
     case 'removed':
       return `${indentAmount(level)}- ${key}: ${stringify(value, stylish, level)}`;
     case 'added':

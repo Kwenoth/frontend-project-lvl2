@@ -16,7 +16,7 @@ const makeDiff = (obj1, obj2) => {
     }
     if (!_.isEqual(obj1[key], obj2[key])) {
       return {
-        key, value1: obj1[key], value2: obj2[key], status: 'updated',
+        key, value: obj1[key], newValue: obj2[key], status: 'updated',
       };
     }
 
